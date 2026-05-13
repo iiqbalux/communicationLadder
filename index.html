@@ -362,6 +362,24 @@
     .mobile-menu { transition: opacity 0.2s ease, transform 0.25s cubic-bezier(0.34,1.56,0.64,1); }
     .mobile-menu.hidden-menu { opacity: 0; transform: translateY(-8px); pointer-events: none; }
     .mobile-menu.visible-menu { opacity: 1; transform: translateY(0); pointer-events: all; }
+
+    /* Bubble touch target */
+    .sb { touch-action: manipulation; }
+
+    /* Mobile bubble size */
+    @media (max-width: 767px) {
+      .sb-body {
+        font-size: 0.72rem !important;
+        padding: 0.28rem 0.65rem !important;
+        border-radius: 0.75rem !important;
+      }
+      .sb-tail {
+        border-left-width: 5px !important;
+        border-right-width: 5px !important;
+        border-top-width: 6px !important;
+        bottom: -5px !important;
+      }
+    }
   </style>
 </head>
 
@@ -422,7 +440,7 @@
   </div>
 
   <!-- ── SPEECH BUBBLES ── -->
-  <div id="bubble-field" class="absolute inset-0 overflow-hidden" style="pointer-events:none;">
+  <div id="bubble-field" class="absolute inset-0 overflow-hidden" style="pointer-events:none;z-index:20;">
 
     <!-- Top-left big purple -->
     <div class="sb" data-words='["Hello! 👋","Hi there!","Hey! 😊","Hiya!"]'
