@@ -1434,49 +1434,63 @@
         <svg width="32" height="32" viewBox="0 0 40 40" fill="none"><path d="M20 2.5C21.5 8 25 13 31.5 15C25 17 21.5 22 20 27.5C18.5 22 15 17 8.5 15C15 13 18.5 8 20 2.5Z" fill="#FABD20"/></svg>
       </div>
 
-      <form onsubmit="handleSubmit(event)" class="relative z-10">
+      <form id="contact-form" onsubmit="handleSubmit(event)" class="relative z-10">
+        <!-- Web3Forms: replace YOUR_WEB3FORMS_ACCESS_KEY with the key from web3forms.com -->
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+        <input type="hidden" name="subject" value="New Enquiry — Communication Ladder" />
+        <input type="hidden" name="from_name" value="Communication Ladder Website" />
+        <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" />
+
         <div class="grid md:grid-cols-2 gap-5 mb-5">
           <div>
             <label class="block text-sm font-semibold text-ink-700 mb-2" style="font-family:'Playpen Sans',sans-serif;">Your name</label>
-            <input type="text" placeholder="Jane Smith" class="form-input" required />
+            <input type="text" name="name" placeholder="Jane Smith" class="form-input" required />
           </div>
           <div>
             <label class="block text-sm font-semibold text-ink-700 mb-2" style="font-family:'Playpen Sans',sans-serif;">Email address</label>
-            <input type="email" placeholder="jane@example.com" class="form-input" required />
+            <input type="email" name="email" placeholder="jane@example.com" class="form-input" required />
           </div>
         </div>
 
         <div class="grid md:grid-cols-2 gap-5 mb-5">
           <div>
             <label class="block text-sm font-semibold text-ink-700 mb-2" style="font-family:'Playpen Sans',sans-serif;">Child's age</label>
-            <input type="text" placeholder="e.g. 4 years old" class="form-input" />
+            <input type="text" name="child_age" placeholder="e.g. 4 years old" class="form-input" />
           </div>
           <div>
             <label class="block text-sm font-semibold text-ink-700 mb-2" style="font-family:'Playpen Sans',sans-serif;">I'm interested in</label>
-            <select class="form-input" style="cursor:pointer;">
+            <select name="service" class="form-input" style="cursor:pointer;">
               <option value="">Select a service...</option>
               <option>Assessment Package (£165)</option>
               <option>Therapy Sessions (£55/session)</option>
-              <option>Not sure yet-need guidance</option>
+              <option>Not sure yet — need guidance</option>
             </select>
           </div>
         </div>
 
         <div class="mb-6">
           <label class="block text-sm font-semibold text-ink-700 mb-2" style="font-family:'Playpen Sans',sans-serif;">Tell us about your child's needs</label>
-          <textarea placeholder="Please share a brief description of your concerns and what you'd like support with..." class="form-input"></textarea>
+          <textarea name="message" placeholder="Please share a brief description of your concerns and what you'd like support with..." class="form-input"></textarea>
         </div>
 
-        <button type="submit" class="btn-primary w-full justify-center text-base py-4">
-          Send Message
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <button type="submit" id="submit-btn" class="btn-primary w-full justify-center text-base py-4">
+          <span id="submit-label">Send Message</span>
+          <svg id="submit-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
 
-        <!-- Success state (hidden by default) -->
+        <!-- Success state -->
         <div id="success-msg" class="hidden mt-4 text-center py-4 px-6 rounded-3xl" style="background:#EDE6FF;">
           <div class="font-display font-bold text-purple-600 text-lg">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="display:inline;margin-right:6px;vertical-align:middle;"><path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke="#7B45F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 4L12 14.01l-3-3" stroke="#7B45F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             Message sent! We'll be in touch within 24 hours.
+          </div>
+        </div>
+
+        <!-- Error state -->
+        <div id="error-msg" class="hidden mt-4 text-center py-4 px-6 rounded-3xl" style="background:#FFF0F0;border:1px solid #FFCCCC;">
+          <div class="font-display font-bold text-red-600 text-base">
+            Something went wrong. Please email us directly at
+            <a href="mailto:contact.communicationladder@gmail.com" style="text-decoration:underline;">contact.communicationladder@gmail.com</a>
           </div>
         </div>
       </form>
@@ -1657,12 +1671,41 @@
     }, 2800);
   })();
 
-  // Form submission
-  function handleSubmit(e) {
+  // Form submission via Web3Forms
+  async function handleSubmit(e) {
     e.preventDefault();
-    document.getElementById('success-msg').classList.remove('hidden');
-    e.target.querySelector('button[type="submit"]').style.opacity = '0.5';
-    e.target.querySelector('button[type="submit"]').disabled = true;
+    const form = e.target;
+    const btn = document.getElementById('submit-btn');
+    const label = document.getElementById('submit-label');
+    const successMsg = document.getElementById('success-msg');
+    const errorMsg = document.getElementById('error-msg');
+
+    btn.disabled = true;
+    btn.style.opacity = '0.7';
+    label.textContent = 'Sending…';
+    successMsg.classList.add('hidden');
+    errorMsg.classList.add('hidden');
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(form)))
+      });
+      const data = await res.json();
+      if (data.success) {
+        successMsg.classList.remove('hidden');
+        form.reset();
+      } else {
+        throw new Error(data.message || 'Submission failed');
+      }
+    } catch {
+      errorMsg.classList.remove('hidden');
+    } finally {
+      btn.disabled = false;
+      btn.style.opacity = '1';
+      label.textContent = 'Send Message';
+    }
   }
 </script>
 </body>
