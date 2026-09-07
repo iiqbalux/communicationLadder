@@ -390,6 +390,10 @@
       0%   { opacity: 0; transform: translateY(10px) scale(0.92); }
       100% { opacity: 1; transform: translateY(0) scale(1); }
     }
+    #success-msg.fade-out {
+      opacity: 0; transform: translateY(-6px) scale(0.97);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
 
     @media (prefers-reduced-motion: reduce) {
       #submit-btn.is-sending .submit-plane,
@@ -399,6 +403,7 @@
       #success-msg.reveal,
       #error-msg.reveal { animation: none !important; }
       #submit-btn.is-success #submit-content { transition: none; }
+      #success-msg.fade-out { transition: none; }
     }
 
     /* Section fade-in */
@@ -1998,7 +2003,7 @@
     label.textContent = 'Sending…';
     successMsg.classList.add('hidden');
     errorMsg.classList.add('hidden');
-    successMsg.classList.remove('reveal');
+    successMsg.classList.remove('reveal', 'fade-out');
     errorMsg.classList.remove('reveal');
 
     const startedAt = Date.now();
@@ -2027,6 +2032,15 @@
         btn.disabled = false;
         label.textContent = 'Send Message';
       }, 3200);
+
+      // Clear the confirmation after a while so they can send another
+      setTimeout(() => {
+        successMsg.classList.add('fade-out');
+        setTimeout(() => {
+          successMsg.classList.add('hidden');
+          successMsg.classList.remove('reveal', 'fade-out');
+        }, 450);
+      }, 7000);
       return;
     } catch {
       btn.classList.remove('is-sending');
