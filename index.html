@@ -187,6 +187,24 @@
       box-shadow: 0 4px 16px 0 rgba(26,16,53,0.08), 0 16px 48px 0 rgba(123,69,240,0.14);
     }
 
+    /* Comparison table */
+    .cmp-table { width:100%; border-collapse:collapse; min-width:660px; }
+    .cmp-table th { padding:16px 14px; font-size:0.8rem; }
+    .cmp-feat { padding:14px 16px; font-size:0.875rem; font-weight:600; color:#4A4266; border-top:1px solid #F0ECFA; }
+    .cmp-cell { padding:14px 14px; text-align:center; border-top:1px solid #F0ECFA; border-left:1px solid #F0ECFA; }
+    .cmp-yes { display:inline-flex; width:22px; height:22px; border-radius:999px; background:#EDE6FF; align-items:center; justify-content:center; }
+    .cmp-no { color:#C9C2E0; font-weight:800; font-size:0.95rem; }
+    .cmp-col-pop { background:#FAF5FF; }
+    .cmp-details { border:1px solid #EDE6FF; border-radius:1.75rem; background:#fff; box-shadow:0 2px 8px rgba(26,16,53,0.05),0 10px 34px rgba(123,69,240,0.08); overflow:hidden; }
+    .cmp-summary { list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:1.1rem 1.5rem; font-family:'Playpen Sans',sans-serif; font-weight:800; color:#1A1035; font-size:1.02rem; transition:background-color .18s ease; }
+    .cmp-summary::-webkit-details-marker { display:none; }
+    .cmp-summary:hover { background:#F7F2FF; }
+    .cmp-summary:focus-visible { outline:3px solid #FABD20; outline-offset:-3px; }
+    .cmp-sub { display:block; font-size:0.78rem; font-weight:600; color:#8A84B4; margin-top:2px; }
+    .cmp-chevron { flex-shrink:0; color:#7B45F0; transition:transform .22s ease; }
+    .cmp-details[open] .cmp-summary { border-bottom:1px solid #EDE6FF; }
+    .cmp-details[open] .cmp-chevron { transform:rotate(180deg); }
+
     /* Rounded star shape in CSS */
     .star-shape {
       clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
@@ -434,7 +452,7 @@
 
     <!-- Desktop nav links -->
     <div class="hidden md:flex items-center gap-8">
-      <a href="#about" class="nav-link">About</a>
+      <a href="#about" class="nav-link">Our Ethos</a>
       <a href="#services" class="nav-link">Services</a>
       <a href="#approach" class="nav-link">Our Approach</a>
       <a href="#contact" class="nav-link">Contact</a>
@@ -459,7 +477,7 @@
   <!-- Mobile menu -->
   <div id="mobile-menu" class="mobile-menu hidden-menu md:hidden absolute top-full left-0 right-0 bg-white border-t border-purple-100 shadow-lg px-6 py-6">
     <div class="flex flex-col gap-4">
-      <a href="#about" class="nav-link text-base" onclick="closeMobileMenu()">About</a>
+      <a href="#about" class="nav-link text-base" onclick="closeMobileMenu()">Our Ethos</a>
       <a href="#services" class="nav-link text-base" onclick="closeMobileMenu()">Services</a>
       <a href="#approach" class="nav-link text-base" onclick="closeMobileMenu()">Our Approach</a>
       <a href="#contact" class="nav-link text-base" onclick="closeMobileMenu()">Contact</a>
@@ -601,11 +619,11 @@
 
     <div class="badge mb-6" style="display:inline-block;">Speech & Language Therapy · Greater Manchester</div>
 
-    <!-- Heading: Aim High, / Connect Better -->
+    <!-- Heading: Climb, connect, / communicate. -->
     <h1 class="font-display font-black mb-5" style="font-size:clamp(2.4rem,5.5vw,3.8rem);letter-spacing:-0.035em;line-height:1.08;color:#1A1035;">
-      Aim High,
+      Climb, connect,
       <span style="color:#7B45F0;display:block;position:relative;width:fit-content;margin:0 auto;">
-        Connect Better
+        communicate.
         <svg style="position:absolute;bottom:-7px;left:0;width:100%;" height="11" viewBox="0 0 300 11" fill="none" preserveAspectRatio="none">
           <path d="M4 8C60 2.5 120 9 180 5.5C220 3 265 9 296 6.5" stroke="#FABD20" stroke-width="4" stroke-linecap="round" fill="none"/>
         </svg>
@@ -613,7 +631,7 @@
     </h1>
 
     <p class="text-ink-500 text-lg mb-9 mx-auto" style="line-height:1.75;max-width:34rem;">
-      Play-based, parent-involved therapy for children aged 2–11. Skip the 2-year NHS wait and get personalised expert care now.
+      Specialist Speech and Language support for children and families.
     </p>
 
     <div class="flex flex-wrap justify-center gap-3 mb-10">
@@ -636,7 +654,7 @@
       </span>
       <span class="flex items-center gap-1.5 text-sm font-semibold text-ink-600" style="font-family:'Playpen Sans',sans-serif;">
         <span style="width:8px;height:8px;border-radius:50%;background:#FABD20;display:inline-block;flex-shrink:0;"></span>
-        6+ Years NHS Experience
+        6+ Years Experience
       </span>
     </div>
   </div>
@@ -663,7 +681,7 @@
       </div>
       <div class="fade-in text-center" style="transition-delay:0.2s;">
         <div class="font-display font-black text-4xl text-purple-500 mb-1" style="letter-spacing:-0.03em;">6+</div>
-        <div class="text-sm font-semibold text-ink-500" style="font-family:'Playpen Sans',sans-serif;">Years NHS & Private Experience</div>
+        <div class="text-sm font-semibold text-ink-500" style="font-family:'Playpen Sans',sans-serif;">Years Experience</div>
       </div>
       <div class="fade-in text-center" style="transition-delay:0.3s;">
         <div class="font-display font-black text-4xl text-purple-500 mb-1" style="letter-spacing:-0.03em;">2–11</div>
@@ -681,64 +699,62 @@
       <!-- Credentials visual card -->
       <div class="fade-in relative flex flex-col gap-5">
 
-        <!-- Main card: animated ladder + stat -->
-        <div class="relative rounded-5xl p-8 overflow-hidden" style="background:linear-gradient(140deg,#7B45F0 0%,#9A78F5 100%);box-shadow:0 16px 50px rgba(123,69,240,0.30),0 6px 20px rgba(123,69,240,0.18);">
-          <div style="position:absolute;inset:0;background-image:url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.75%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22200%22 height=%22200%22 filter=%22url(%23n)%22 opacity=%220.04%22/%3E%3C/svg%3E');border-radius:inherit;pointer-events:none;"></div>
+        <!-- Top row: experience + BSc -->
+        <div class="grid grid-cols-2 gap-5">
 
-          <div class="flex items-center gap-6 relative z-10">
+          <!-- Main card: animated ladder + stat -->
+          <div class="relative rounded-4xl p-6 overflow-hidden flex flex-col justify-between" style="background:linear-gradient(140deg,#7B45F0 0%,#9A78F5 100%);box-shadow:0 16px 50px rgba(123,69,240,0.30),0 6px 20px rgba(123,69,240,0.18);">
+            <div style="position:absolute;inset:0;background-image:url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.75%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22200%22 height=%22200%22 filter=%22url(%23n)%22 opacity=%220.04%22/%3E%3C/svg%3E');border-radius:inherit;pointer-events:none;"></div>
+
             <!-- Animated ladder SVG -->
-            <div class="flex-shrink-0" style="animation:floatSlow 4s ease-in-out infinite;">
-              <svg width="80" height="100" viewBox="0 0 80 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Ladder sides -->
+            <div class="flex-shrink-0 relative z-10" style="animation:floatSlow 4s ease-in-out infinite;">
+              <svg width="52" height="68" viewBox="0 0 80 110" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="8" y="10" width="10" height="88" rx="5" fill="rgba(255,255,255,0.9)"/>
                 <rect x="62" y="10" width="10" height="88" rx="5" fill="rgba(255,255,255,0.9)"/>
-                <!-- Rungs -->
                 <rect x="8" y="22" width="64" height="9" rx="4.5" fill="rgba(255,255,255,0.85)"/>
                 <rect x="8" y="40" width="64" height="9" rx="4.5" fill="rgba(255,255,255,0.85)"/>
                 <rect x="8" y="58" width="64" height="9" rx="4.5" fill="rgba(255,255,255,0.85)"/>
                 <rect x="8" y="76" width="64" height="9" rx="4.5" fill="rgba(255,255,255,0.85)"/>
-
-                <!-- Star 1 - top left, twinkles -->
                 <g style="animation:pulse-soft 2s ease-in-out infinite;transform-origin:12px 6px;">
                   <path d="M12 0C12.8 3 15 5.2 18 6C15 6.8 12.8 9 12 12C11.2 9 9 6.8 6 6C9 5.2 11.2 3 12 0Z" fill="#FABD20"/>
                 </g>
-                <!-- Star 2 - top right, offset twinkle -->
                 <g style="animation:pulse-soft 2.5s ease-in-out infinite 0.6s;transform-origin:68px 4px;">
                   <path d="M68 0C68.6 2.4 70.4 4.2 73 5C70.4 5.8 68.6 7.6 68 10C67.4 7.6 65.6 5.8 63 5C65.6 4.2 67.4 2.4 68 0Z" fill="#FABD20"/>
                 </g>
-                <!-- Star 3 - small, floats right side -->
-                <g style="animation:pulse-soft 1.8s ease-in-out infinite 1.2s;transform-origin:76px 50px;">
-                  <path d="M76 46C76.5 48 78 49.5 80 50C78 50.5 76.5 52 76 54C75.5 52 74 50.5 72 50C74 49.5 75.5 48 76 46Z" fill="#FABD20" opacity="0.8"/>
-                </g>
-                <!-- Star 4 - small bottom left -->
-                <g style="animation:pulse-soft 3s ease-in-out infinite 0.9s;transform-origin:3px 92px;">
-                  <path d="M3 88C3.4 90 5 91.5 7 92C5 92.5 3.4 94 3 96C2.6 94 1 92.5 -1 92C1 91.5 2.6 90 3 88Z" fill="rgba(255,255,255,0.7)"/>
-                </g>
               </svg>
             </div>
-            <div>
-              <div class="font-display font-black text-5xl text-white leading-none mb-1" style="letter-spacing:-0.04em;">6+</div>
-              <div class="text-white/80 font-semibold text-sm" style="font-family:'Playpen Sans',sans-serif;">Years of specialist experience</div>
-              <div class="text-white/60 text-xs mt-1" style="font-family:'Playpen Sans',sans-serif;">NHS · Private clinics · Schools · Homes</div>
+            <div class="relative z-10 mt-4">
+              <div class="font-display font-black text-4xl text-white leading-none mb-1" style="letter-spacing:-0.04em;">6+</div>
+              <div class="text-white/80 font-semibold text-xs" style="font-family:'Playpen Sans',sans-serif;">Years of specialist experience</div>
+              <div class="text-white/60 text-[11px] mt-1" style="font-family:'Playpen Sans',sans-serif;">NHS · Private clinics · Schools · Homes</div>
             </div>
           </div>
-        </div>
 
-        <!-- Row of two smaller cards -->
-        <div class="grid grid-cols-2 gap-5">
-          <div class="rounded-4xl p-6 bg-white" style="box-shadow:0 2px 8px rgba(26,16,53,0.06),0 8px 28px rgba(26,16,53,0.08);">
-            <div class="w-11 h-11 rounded-2xl flex items-center justify-center mb-4" style="background:#EDE6FF;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6V12C4 16.4 7.4 20.5 12 22C16.6 20.5 20 16.4 20 12V6L12 2Z" fill="#7B45F0" opacity="0.2"/><path d="M12 2L4 6V12C4 16.4 7.4 20.5 12 22C16.6 20.5 20 16.4 20 12V6L12 2Z" stroke="#7B45F0" stroke-width="2" stroke-linejoin="round"/><path d="M9 12L11 14L15 10" stroke="#7B45F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="font-display font-black text-lg text-ink-900 leading-snug">HCPC<br/>Registered</div>
-            <div class="text-ink-400 text-xs mt-1">Fully qualified &amp; insured</div>
-          </div>
-          <div class="rounded-4xl p-6" style="background:linear-gradient(135deg,#FFF8DC,#FFE87A);box-shadow:0 2px 8px rgba(250,189,32,0.15),0 8px 28px rgba(250,189,32,0.12);">
+          <!-- BSc -->
+          <div class="rounded-4xl p-6 flex flex-col justify-center" style="background:linear-gradient(135deg,#FFF8DC,#FFE87A);box-shadow:0 2px 8px rgba(250,189,32,0.15),0 8px 28px rgba(250,189,32,0.12);">
             <div class="w-11 h-11 rounded-2xl flex items-center justify-center mb-4" style="background:rgba(250,189,32,0.3);">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22 10V6H18M14 4H6C4.9 4 4 4.9 4 6V18C4 19.1 4.9 20 6 20H18C19.1 20 20 19.1 20 18V14" stroke="#D48F00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 12L10.5 14.5L16 9" stroke="#D48F00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
             <div class="font-display font-black text-lg text-ink-900 leading-snug">BSc Speech<br/>&amp; Language</div>
             <div class="text-ink-600 text-xs mt-1">University qualified</div>
+          </div>
+        </div>
+
+        <!-- Row of two qualification cards -->
+        <div class="grid grid-cols-2 gap-5">
+          <div class="rounded-4xl p-6 bg-white flex flex-col" style="box-shadow:0 2px 8px rgba(26,16,53,0.06),0 8px 28px rgba(26,16,53,0.08);">
+            <div class="h-16 flex items-center justify-start mb-4">
+              <img src="brand_assets/hcpc-logo.jpg" alt="HCPC registered logo" class="h-16 w-auto object-contain rounded-lg" />
+            </div>
+            <div class="font-display font-black text-lg text-ink-900 leading-snug">HCPC<br/>Registered</div>
+            <div class="text-ink-400 text-xs mt-1">Fully qualified &amp; insured</div>
+          </div>
+          <div class="rounded-4xl p-6 bg-white flex flex-col" style="box-shadow:0 2px 8px rgba(26,16,53,0.06),0 8px 28px rgba(26,16,53,0.08);">
+            <div class="h-16 flex items-center justify-start mb-4">
+              <img src="brand_assets/RCSLT.png" alt="RCSLT logo" class="h-16 w-auto object-contain" />
+            </div>
+            <div class="font-display font-black text-lg text-ink-900 leading-snug">RCSLT<br/>Member</div>
+            <div class="text-ink-400 text-xs mt-1">Professional body membership</div>
           </div>
         </div>
 
@@ -762,47 +778,19 @@
 
       <!-- Text -->
       <div class="fade-in" style="transition-delay:0.15s;">
-        <div class="badge mb-4">About Us</div>
+        <div class="badge mb-4">Our Ethos</div>
         <h2 class="font-display font-black text-4xl md:text-5xl mb-6" style="color:#1A1035;letter-spacing:-0.03em;line-height:1.1;">
           Expert therapy, without the wait
         </h2>
         <p class="text-ink-500 text-lg mb-6" style="line-height:1.75;">
-          Communication Ladder was founded by a qualified Speech and Language Therapist with over 6 years of experience working within the NHS and private sector-in clinics, family homes, and school settings across Greater Manchester.
+          At Communication Ladder we are passionate about helping children develop their confidence and ability to communicate.
+        </p>
+        <p class="text-ink-500 text-lg mb-6" style="line-height:1.75;">
+          We work closely with families and education settings across Greater Manchester to provide bespoke support to children and young people.
         </p>
         <p class="text-ink-500 text-lg mb-8" style="line-height:1.75;">
-          We understand that waiting two years on an NHS list isn't an option for many families. We're here to bridge that gap-providing the expert, personalised therapy your child needs, when they need it most.
+          We believe communication is key in empowering children, young people and their families.
         </p>
-
-        <!-- Credential list -->
-        <div class="flex flex-col gap-4">
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 rounded-2xl flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#EDE6FF;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke="#7B45F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 4L12 14.01l-3-3" stroke="#7B45F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div>
-              <div class="font-display font-bold text-ink-900">BSc Speech and Language Therapy</div>
-              <div class="text-ink-400 text-sm">Fully qualified &amp; registered HCPC member</div>
-            </div>
-          </div>
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 rounded-2xl flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#EDE6FF;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke="#7B45F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 4L12 14.01l-3-3" stroke="#7B45F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div>
-              <div class="font-display font-bold text-ink-900">NHS &amp; Private Experience</div>
-              <div class="text-ink-400 text-sm">Clinics, family homes, and school settings</div>
-            </div>
-          </div>
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 rounded-2xl flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#EDE6FF;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke="#7B45F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 4L12 14.01l-3-3" stroke="#7B45F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div>
-              <div class="font-display font-bold text-ink-900">Specialising in Language Delays &amp; Disorders</div>
-              <div class="text-ink-400 text-sm">Including speech sound therapy and early years intervention</div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -815,7 +803,7 @@
     <div style="position:absolute;top:-15%;right:-10%;width:50%;height:60%;background:radial-gradient(ellipse,rgba(123,69,240,0.1) 0%,transparent 70%);border-radius:50%;"></div>
   </div>
 
-  <div class="relative z-10 max-w-6xl mx-auto px-6">
+  <div class="relative z-10 max-w-7xl mx-auto px-6">
     <div class="text-center mb-14 fade-in">
       <div class="badge mb-4">Who We Help</div>
       <h2 class="font-display font-black text-4xl md:text-5xl mb-4" style="color:#1A1035;letter-spacing:-0.03em;">Supporting children aged 2–11</h2>
@@ -893,126 +881,310 @@
       <p class="text-ink-500 text-lg max-w-2xl mx-auto" style="line-height:1.75;">No hidden costs. Choose the service that's right for your child, or start with an assessment to build a clear picture.</p>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
 
-      <!-- Assessment Package -->
+      <!-- Initial consultation -->
+      <div class="fade-in hover-card rounded-5xl overflow-hidden relative bg-white" style="box-shadow:0 2px 8px rgba(26,16,53,0.06),0 8px 32px rgba(26,16,53,0.08);">
+        <!-- Header -->
+        <div class="relative p-6 pb-5" style="background:linear-gradient(140deg,#FFF8DC,#FFE87A);">
+          <div class="float-2 absolute top-4 right-4 opacity-80">
+            <svg width="28" height="28" viewBox="0 0 40 40" fill="none"><path d="M20 2.5C21.5 8 25 13 31.5 15C25 17 21.5 22 20 27.5C18.5 22 15 17 8.5 15C15 13 18.5 8 20 2.5Z" fill="#F0A800"/></svg>
+          </div>
+          <div class="tag mb-3" style="background:rgba(250,189,32,0.25);color:#8A5A00;">Start here</div>
+          <h3 class="font-display font-black text-xl text-ink-900 mb-1">Initial consultation</h3>
+          <p class="text-ink-500 text-sm mb-4">An informal call to see if we're the right fit</p>
+          <div class="flex items-end gap-2">
+            <span class="font-display font-black text-4xl text-ink-900" style="letter-spacing:-0.04em;">Free</span>
+            <span class="text-ink-400 mb-2 text-sm">up to 15 min</span>
+          </div>
+        </div>
+        <!-- Body -->
+        <div class="p-6 pt-5">
+          <p class="text-ink-500 text-sm mb-5" style="line-height:1.7;">An informal call to talk through your concerns and ask any questions — helpful for working out whether an assessment or therapy is the right next step.</p>
+          <ul class="flex flex-col gap-2.5 mb-6">
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#FFF8DC;">
+                <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#D48F00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <span class="text-sm text-ink-700">Talk through your concerns</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#FFF8DC;">
+                <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#D48F00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <span class="text-sm text-ink-700">Ask any questions about therapy</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#FFF8DC;">
+                <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#D48F00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <span class="text-sm text-ink-700">See if assessment or therapy is needed</span>
+            </li>
+          </ul>
+          <a href="#contact" class="btn-gold w-full justify-center text-sm">Book a call</a>
+        </div>
+      </div>
+
+      <!-- Assessment package -->
       <div class="fade-in hover-card rounded-5xl overflow-hidden relative" style="box-shadow:0 4px 20px rgba(123,69,240,0.15),0 8px 40px rgba(123,69,240,0.10);">
         <!-- Header -->
-        <div class="relative p-8 pb-6" style="background:linear-gradient(140deg,#7B45F0,#9A78F5);">
-          <!-- Grain -->
-          <div style="position:absolute;inset:0;background-image:url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.75%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22200%22 height=%22200%22 filter=%22url(%23n)%22 opacity=%220.04%22/%3E%3C/svg%3E');pointer-events:none;"></div>
+        <div class="relative p-6 pb-5" style="background:linear-gradient(140deg,#7B45F0,#9A78F5);">
+          <div style="position:absolute;inset:0;background-image:url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Cfilter id=%22ns1%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.75%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22200%22 height=%22200%22 filter=%22url(%23ns1)%22 opacity=%220.04%22/%3E%3C/svg%3E');pointer-events:none;"></div>
           <div class="float-1 absolute top-4 right-4 opacity-80">
             <svg width="28" height="28" viewBox="0 0 40 40" fill="none"><path d="M20 2.5C21.5 8 25 13 31.5 15C25 17 21.5 22 20 27.5C18.5 22 15 17 8.5 15C15 13 18.5 8 20 2.5Z" fill="#FABD20"/></svg>
           </div>
           <div class="tag mb-3" style="background:rgba(255,255,255,0.2);color:white;">Most popular</div>
-          <h3 class="font-display font-black text-2xl text-white mb-1">Assessment Package</h3>
+          <h3 class="font-display font-black text-xl text-white mb-1">Assessment package</h3>
           <p class="text-white/75 text-sm mb-4">A comprehensive starting point for every child</p>
           <div class="flex items-end gap-2">
-            <span class="font-display font-black text-5xl text-white" style="letter-spacing:-0.04em;">£165</span>
-            <span class="text-white/70 mb-2 text-sm">one-off payment</span>
+            <span class="font-display font-black text-4xl text-white" style="letter-spacing:-0.04em;">£165</span>
+            <span class="text-white/70 mb-2 text-sm">one-off</span>
           </div>
         </div>
         <!-- Body -->
-        <div class="bg-white p-8 pt-6">
-          <p class="text-ink-500 text-sm mb-6" style="line-height:1.75;">A 1.5-hour session that gives you a clear picture of your child's strengths and areas for support.</p>
-          <ul class="flex flex-col gap-3 mb-8">
+        <div class="bg-white p-6 pt-5">
+          <p class="text-ink-500 text-sm mb-5" style="line-height:1.7;">A detailed assessment of your child's strengths and needs to identify the areas to support.</p>
+          <ul class="flex flex-col gap-2.5 mb-6">
             <li class="flex items-start gap-3">
               <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#EDE6FF;">
                 <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#7B45F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
-              <span class="text-sm text-ink-700">Initial case history interview with parents</span>
+              <span class="text-sm text-ink-700">Case history taken with parents</span>
             </li>
             <li class="flex items-start gap-3">
               <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#EDE6FF;">
                 <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#7B45F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
-              <span class="text-sm text-ink-700">Full assessment session with your child</span>
+              <span class="text-sm text-ink-700">Detailed assessment of strengths &amp; needs</span>
             </li>
             <li class="flex items-start gap-3">
               <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#EDE6FF;">
                 <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#7B45F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
-              <span class="text-sm text-ink-700">Detailed written report summarising findings</span>
+              <span class="text-sm text-ink-700">Written summary of findings provided</span>
             </li>
             <li class="flex items-start gap-3">
               <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#EDE6FF;">
                 <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#7B45F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
-              <span class="text-sm text-ink-700">Report suitable as school/EHCP supporting evidence</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#EDE6FF;">
-                <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#7B45F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <span class="text-sm text-ink-700">Available in-person or online (where appropriate)</span>
+              <span class="text-sm text-ink-700">Strategies to support overall communication</span>
             </li>
           </ul>
-          <a href="#contact" class="btn-primary w-full justify-center">Book an Assessment</a>
+          <a href="#contact" class="btn-primary w-full justify-center text-sm">Book assessment</a>
         </div>
       </div>
 
-      <!-- Therapy Sessions -->
+      <!-- Intervention plan -->
+      <div class="fade-in hover-card rounded-5xl overflow-hidden relative" style="box-shadow:0 4px 20px rgba(123,69,240,0.15),0 8px 40px rgba(123,69,240,0.10);transition-delay:0.1s;">
+        <!-- Header -->
+        <div class="relative p-6 pb-5" style="background:linear-gradient(140deg,#7B45F0,#9A78F5);">
+          <div style="position:absolute;inset:0;background-image:url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Cfilter id=%22ns2%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.75%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22200%22 height=%22200%22 filter=%22url(%23ns2)%22 opacity=%220.04%22/%3E%3C/svg%3E');pointer-events:none;"></div>
+          <div class="float-3 absolute top-4 right-4 opacity-80">
+            <svg width="24" height="24" viewBox="0 0 40 40" fill="none"><path d="M20 2.5C21.5 8 25 13 31.5 15C25 17 21.5 22 20 27.5C18.5 22 15 17 8.5 15C15 13 18.5 8 20 2.5Z" fill="#FABD20"/></svg>
+          </div>
+          <div class="tag mb-3" style="background:rgba(255,255,255,0.2);color:white;">Parents &amp; staff</div>
+          <h3 class="font-display font-black text-xl text-white mb-1">Intervention plan</h3>
+          <p class="text-white/75 text-sm mb-4">For parents &amp; education staff to implement</p>
+          <div class="flex items-end gap-2">
+            <span class="font-display font-black text-4xl text-white" style="letter-spacing:-0.04em;">£60</span>
+            <span class="text-white/70 mb-2 text-sm">one-off</span>
+          </div>
+        </div>
+        <!-- Body -->
+        <div class="bg-white p-6 pt-5">
+          <p class="text-ink-500 text-sm mb-5" style="line-height:1.7;">A tailored written plan of communication goals and intervention for parents and education staff to put into practice.</p>
+          <ul class="flex flex-col gap-2.5 mb-6">
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#EDE6FF;">
+                <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#7B45F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <span class="text-sm text-ink-700">Tailored written communication goals</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#EDE6FF;">
+                <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#7B45F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <span class="text-sm text-ink-700">Practical intervention strategies</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#EDE6FF;">
+                <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#7B45F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <span class="text-sm text-ink-700">Guidance for caregivers on delivery</span>
+            </li>
+          </ul>
+          <a href="#contact" class="btn-primary w-full justify-center text-sm">Request plan</a>
+        </div>
+      </div>
+
+      <!-- Therapy sessions -->
       <div class="fade-in hover-card rounded-5xl overflow-hidden relative bg-white" style="box-shadow:0 2px 8px rgba(26,16,53,0.06),0 8px 32px rgba(26,16,53,0.08);transition-delay:0.15s;">
         <!-- Header -->
-        <div class="relative p-8 pb-6" style="background:linear-gradient(140deg,#FFF8DC,#FFE87A);">
+        <div class="relative p-6 pb-5" style="background:linear-gradient(140deg,#FFF8DC,#FFE87A);">
           <div class="float-2 absolute top-4 right-4 opacity-80">
             <svg width="28" height="28" viewBox="0 0 40 40" fill="none"><path d="M20 2.5C21.5 8 25 13 31.5 15C25 17 21.5 22 20 27.5C18.5 22 15 17 8.5 15C15 13 18.5 8 20 2.5Z" fill="#F0A800"/></svg>
           </div>
           <div class="tag mb-3" style="background:rgba(250,189,32,0.25);color:#8A5A00;">Ongoing support</div>
-          <h3 class="font-display font-black text-2xl text-ink-900 mb-1">Therapy Sessions</h3>
-          <p class="text-ink-500 text-sm mb-4">1:1 sessions tailored to your child's needs</p>
+          <h3 class="font-display font-black text-xl text-ink-900 mb-1">Therapy sessions</h3>
+          <p class="text-ink-500 text-sm mb-4">1:1 sessions tailored to your child's goals</p>
           <div class="flex items-end gap-2">
-            <span class="font-display font-black text-5xl text-ink-900" style="letter-spacing:-0.04em;">£55</span>
-            <span class="text-ink-400 mb-2 text-sm">per session</span>
+            <span class="font-display font-black text-2xl text-ink-900" style="letter-spacing:-0.02em;">Price on enquiry</span>
           </div>
         </div>
         <!-- Body -->
-        <div class="p-8 pt-6">
-          <p class="text-ink-500 text-sm mb-6" style="line-height:1.75;">1-hour sessions that include direct therapy with your child, parent guidance, and preparation time for the week ahead.</p>
-          <ul class="flex flex-col gap-3 mb-8">
+        <div class="p-6 pt-5">
+          <p class="text-ink-500 text-sm mb-5" style="line-height:1.7;">Individualised therapy sessions tailored to your child's communication goals, built around their interests to keep them engaged.</p>
+          <ul class="flex flex-col gap-2.5 mb-6">
             <li class="flex items-start gap-3">
               <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#FFF8DC;">
                 <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#D48F00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
-              <span class="text-sm text-ink-700"><strong>30 min</strong> direct therapy session with your child</span>
+              <span class="text-sm text-ink-700">Individualised to your child's communication goals</span>
             </li>
             <li class="flex items-start gap-3">
               <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#FFF8DC;">
                 <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#D48F00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
-              <span class="text-sm text-ink-700"><strong>10 min</strong> parent debrief &amp; homework discussion</span>
+              <span class="text-sm text-ink-700">Built around your child's interests</span>
             </li>
             <li class="flex items-start gap-3">
               <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#FFF8DC;">
                 <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#D48F00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
-              <span class="text-sm text-ink-700"><strong>20 min</strong> session prep &amp; resource creation</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#FFF8DC;">
-                <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#D48F00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <span class="text-sm text-ink-700">Take-home activities &amp; resources every week</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#FFF8DC;">
-                <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#D48F00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <span class="text-sm text-ink-700">Intervention plan included (with therapy purchase)</span>
+              <span class="text-sm text-ink-700">Designed to maintain engagement</span>
             </li>
           </ul>
-          <a href="#contact" class="btn-gold w-full justify-center">Book Therapy Sessions</a>
+          <a href="#contact" class="btn-gold w-full justify-center text-sm">Book therapy</a>
         </div>
       </div>
     </div>
 
-    <!-- Note on location -->
-    <div class="fade-in mt-8 text-center">
-      <p class="text-ink-400 text-sm" style="font-family:'Playpen Sans',sans-serif;">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="display:inline;vertical-align:middle;margin-right:4px;"><path d="M21 10C21 17 12 23 12 23S3 17 3 10C3 6.13401 7.02944 3 12 3C16.9706 3 21 6.13401 21 10Z" stroke="#8A84B4" stroke-width="2"/><circle cx="12" cy="10" r="3" stroke="#8A84B4" stroke-width="2"/></svg>
+    <!-- Note on travel & location -->
+    <div class="fade-in mt-8 flex flex-col items-center gap-2 text-center px-2">
+      <p class="text-ink-400 text-xs sm:text-sm whitespace-normal md:whitespace-nowrap" style="font-family:'Playpen Sans',sans-serif;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="display:inline;vertical-align:-3px;margin-right:4px;"><path d="M21 10C21 17 12 23 12 23S3 17 3 10C3 6.13401 7.02944 3 12 3C16.9706 3 21 6.13401 21 10Z" stroke="#8A84B4" stroke-width="2"/><circle cx="12" cy="10" r="3" stroke="#8A84B4" stroke-width="2"/></svg>
         Sessions available in <strong>your home</strong> (quiet area required), or <strong>online</strong> where appropriate · Greater Manchester area
       </p>
+      <p class="text-ink-400 text-xs sm:text-sm whitespace-normal md:whitespace-nowrap" style="font-family:'Playpen Sans',sans-serif;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="display:inline;vertical-align:-3px;margin-right:4px;"><path d="M3 13l2.1-6.1A3 3 0 018 5h8a3 3 0 012.9 1.9L21 13v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-1H7v1a1 1 0 01-1 1H4a1 1 0 01-1-1v-6z" stroke="#8A84B4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 13h18" stroke="#8A84B4" stroke-width="2" stroke-linecap="round"/><circle cx="7.5" cy="16" r="1" fill="#8A84B4"/><circle cx="16.5" cy="16" r="1" fill="#8A84B4"/></svg>
+        <strong>Travel</strong> is free for the first 5 miles from OL16. Additional distances incur a travel charge, quoted on enquiry.
+      </p>
     </div>
+    <!-- Not sure what support you need? -->
+    <div class="fade-in mt-10 max-w-4xl mx-auto">
+      <details class="cmp-details">
+        <summary class="cmp-summary">
+          <span>Not sure what support you need?<span class="cmp-sub">Tap to compare what's included in each package</span></span>
+          <svg class="cmp-chevron" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="p-4 md:p-5">
+          <p class="text-ink-400 text-xs mb-3 md:hidden" style="font-family:'Playpen Sans',sans-serif;">Swipe the table sideways to compare →</p>
+          <div class="overflow-x-auto rounded-2xl" style="border:1px solid #F0ECFA;">
+        <table class="cmp-table">
+          <thead>
+            <tr style="background:linear-gradient(140deg,#7B45F0,#9A78F5);">
+              <th class="text-left text-white font-display font-bold" style="width:36%;">What's included</th>
+              <th class="text-white font-display font-bold text-center">Initial<br>consultation</th>
+              <th class="text-white font-display font-bold text-center" style="background:rgba(255,255,255,0.12);">Assessment<br>package</th>
+              <th class="text-white font-display font-bold text-center">Intervention<br>plan</th>
+              <th class="text-white font-display font-bold text-center">Therapy<br>sessions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background:#F7F2FF;">
+              <td class="cmp-feat" style="color:#1A1035;font-weight:800;">Price</td>
+              <td class="cmp-cell" style="font-weight:700;color:#1A1035;">Free</td>
+              <td class="cmp-cell cmp-col-pop" style="font-weight:700;color:#1A1035;">£165</td>
+              <td class="cmp-cell" style="font-weight:700;color:#1A1035;">£60</td>
+              <td class="cmp-cell" style="font-weight:700;color:#1A1035;">On enquiry</td>
+            </tr>
+            <tr>
+              <td class="cmp-feat">Informal chat about your concerns &amp; questions</td>
+              <td class="cmp-cell"><span class="cmp-yes"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#7B45F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              <td class="cmp-cell cmp-col-pop"><span class="cmp-no">–</span></td>
+              <td class="cmp-cell"><span class="cmp-no">–</span></td>
+              <td class="cmp-cell"><span class="cmp-no">–</span></td>
+            </tr>
+            <tr style="background:#FCFBFF;">
+              <td class="cmp-feat">Advice on the right next step for your child</td>
+              <td class="cmp-cell"><span class="cmp-yes"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#7B45F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              <td class="cmp-cell cmp-col-pop"><span class="cmp-yes"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#7B45F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              <td class="cmp-cell"><span class="cmp-no">–</span></td>
+              <td class="cmp-cell"><span class="cmp-no">–</span></td>
+            </tr>
+            <tr>
+              <td class="cmp-feat">Case history taken with parents</td>
+              <td class="cmp-cell"><span class="cmp-no">–</span></td>
+              <td class="cmp-cell cmp-col-pop"><span class="cmp-yes"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#7B45F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              <td class="cmp-cell"><span class="cmp-no">–</span></td>
+              <td class="cmp-cell"><span class="cmp-no">–</span></td>
+            </tr>
+            <tr style="background:#FCFBFF;">
+              <td class="cmp-feat">Assessment of your child's strengths &amp; needs</td>
+              <td class="cmp-cell"><span class="cmp-no">–</span></td>
+              <td class="cmp-cell cmp-col-pop"><span class="cmp-yes"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#7B45F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              <td class="cmp-cell"><span class="cmp-no">–</span></td>
+              <td class="cmp-cell"><span class="cmp-no">–</span></td>
+            </tr>
+            <tr>
+              <td class="cmp-feat">Written summary of findings</td>
+              <td class="cmp-cell"><span class="cmp-no">–</span></td>
+              <td class="cmp-cell cmp-col-pop"><span class="cmp-yes"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#7B45F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              <td class="cmp-cell"><span class="cmp-no">–</span></td>
+              <td class="cmp-cell"><span class="cmp-no">–</span></td>
+            </tr>
+            <tr style="background:#FCFBFF;">
+              <td class="cmp-feat">Strategies to support communication</td>
+              <td class="cmp-cell"><span class="cmp-no">–</span></td>
+              <td class="cmp-cell cmp-col-pop"><span class="cmp-yes"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#7B45F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              <td class="cmp-cell"><span class="cmp-yes"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#7B45F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              <td class="cmp-cell"><span class="cmp-yes"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#7B45F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            </tr>
+            <tr>
+              <td class="cmp-feat">Personalised communication goals</td>
+              <td class="cmp-cell"><span class="cmp-no">–</span></td>
+              <td class="cmp-cell cmp-col-pop"><span class="cmp-no">–</span></td>
+              <td class="cmp-cell"><span class="cmp-yes"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#7B45F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              <td class="cmp-cell"><span class="cmp-yes"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#7B45F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            </tr>
+            <tr style="background:#FCFBFF;">
+              <td class="cmp-feat">Written plan for parents / education staff</td>
+              <td class="cmp-cell"><span class="cmp-no">–</span></td>
+              <td class="cmp-cell cmp-col-pop"><span class="cmp-no">–</span></td>
+              <td class="cmp-cell"><span class="cmp-yes"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#7B45F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              <td class="cmp-cell"><span class="cmp-no">–</span></td>
+            </tr>
+            <tr>
+              <td class="cmp-feat">Guidance for caregivers on delivering it</td>
+              <td class="cmp-cell"><span class="cmp-no">–</span></td>
+              <td class="cmp-cell cmp-col-pop"><span class="cmp-no">–</span></td>
+              <td class="cmp-cell"><span class="cmp-yes"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#7B45F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              <td class="cmp-cell"><span class="cmp-no">–</span></td>
+            </tr>
+            <tr style="background:#FCFBFF;">
+              <td class="cmp-feat">Ongoing 1:1 therapy sessions</td>
+              <td class="cmp-cell"><span class="cmp-no">–</span></td>
+              <td class="cmp-cell cmp-col-pop"><span class="cmp-no">–</span></td>
+              <td class="cmp-cell"><span class="cmp-no">–</span></td>
+              <td class="cmp-cell"><span class="cmp-yes"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#7B45F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            </tr>
+            <tr>
+              <td class="cmp-feat">Sessions built around your child's interests</td>
+              <td class="cmp-cell"><span class="cmp-no">–</span></td>
+              <td class="cmp-cell cmp-col-pop"><span class="cmp-no">–</span></td>
+              <td class="cmp-cell"><span class="cmp-no">–</span></td>
+              <td class="cmp-cell"><span class="cmp-yes"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#7B45F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            </tr>
+          </tbody>
+        </table>
+          </div>
+          <div class="text-center mt-6">
+            <a href="#contact" class="btn-primary">Book a free consultation</a>
+          </div>
+        </div>
+      </details>
+    </div>
+
   </div>
 </section>
 
@@ -1495,8 +1667,10 @@
             <label class="block text-sm font-semibold text-ink-700 mb-2" style="font-family:'Playpen Sans',sans-serif;">I'm interested in</label>
             <select name="service" class="form-input" style="cursor:pointer;">
               <option value="">Select a service...</option>
-              <option>Assessment Package (£165)</option>
-              <option>Therapy Sessions (£55/session)</option>
+              <option>Initial consultation (free)</option>
+              <option>Assessment package (£165)</option>
+              <option>Intervention plan (£60)</option>
+              <option>Therapy sessions</option>
               <option>Not sure yet — need guidance</option>
             </select>
           </div>
@@ -1549,7 +1723,7 @@
       <!-- Brand -->
       <div>
         <p class="font-display font-black text-xl text-ink-900 mb-1" style="letter-spacing:-0.02em;">Communication Ladder</p>
-        <p class="font-display font-bold text-purple-500 text-xs uppercase tracking-widest mb-3" style="letter-spacing:0.1em;">Aim High, Connect Better</p>
+        <p class="font-display font-bold text-purple-500 text-xs uppercase tracking-widest mb-3" style="letter-spacing:0.1em;">Climb, Connect, Communicate</p>
         <p class="text-ink-500 text-sm leading-relaxed">Expert speech and language therapy for children aged 2–11. Greater Manchester &amp; online.</p>
         <div class="flex gap-2 mt-5">
           <span class="tag" style="background:#EDE6FF;color:#6A2EE0;">HCPC Registered</span>
@@ -1561,10 +1735,10 @@
       <div>
         <h4 class="font-display font-bold text-ink-400 text-sm mb-5 uppercase tracking-widest">Services</h4>
         <ul class="flex flex-col gap-3">
-          <li><a href="#services" class="text-ink-500 text-sm hover:text-purple-500 transition-colors duration-150" style="font-family:'Playpen Sans',sans-serif;font-weight:600;">Assessment Package-£165</a></li>
-          <li><a href="#services" class="text-ink-500 text-sm hover:text-purple-500 transition-colors duration-150" style="font-family:'Playpen Sans',sans-serif;font-weight:600;">Therapy Sessions-£55/session</a></li>
-          <li><a href="#services" class="text-ink-500 text-sm hover:text-purple-500 transition-colors duration-150" style="font-family:'Playpen Sans',sans-serif;font-weight:600;">Parent Coaching</a></li>
-          <li><a href="#services" class="text-ink-500 text-sm hover:text-purple-500 transition-colors duration-150" style="font-family:'Playpen Sans',sans-serif;font-weight:600;">School Reports &amp; Intervention Plans</a></li>
+          <li><a href="#services" class="text-ink-500 text-sm hover:text-purple-500 transition-colors duration-150" style="font-family:'Playpen Sans',sans-serif;font-weight:600;">Initial consultation — free</a></li>
+          <li><a href="#services" class="text-ink-500 text-sm hover:text-purple-500 transition-colors duration-150" style="font-family:'Playpen Sans',sans-serif;font-weight:600;">Assessment package — £165</a></li>
+          <li><a href="#services" class="text-ink-500 text-sm hover:text-purple-500 transition-colors duration-150" style="font-family:'Playpen Sans',sans-serif;font-weight:600;">Intervention plan — £60</a></li>
+          <li><a href="#services" class="text-ink-500 text-sm hover:text-purple-500 transition-colors duration-150" style="font-family:'Playpen Sans',sans-serif;font-weight:600;">Therapy sessions</a></li>
         </ul>
       </div>
 
