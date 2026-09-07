@@ -1,0 +1,7 @@
+# Static site — no build step. Netlify serves the repo root as-is.
+[build]
+  publish = "."
+  command = ""
+
+# Netlify Forms picks up the <form name="contact" data-netlify="true"> in index.html
+# automatically on deploy. Submissions show under: Netlify dashboard → Forms → "contact".

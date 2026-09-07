@@ -1642,12 +1642,12 @@
         <svg width="32" height="32" viewBox="0 0 40 40" fill="none"><path d="M20 2.5C21.5 8 25 13 31.5 15C25 17 21.5 22 20 27.5C18.5 22 15 17 8.5 15C15 13 18.5 8 20 2.5Z" fill="#FABD20"/></svg>
       </div>
 
-      <form id="contact-form" onsubmit="handleSubmit(event)" class="relative z-10">
-        <!-- Web3Forms: YOUR_WEB3FORMS_ACCESS_KEY from web3forms.com -->
-        <input type="hidden" name="access_key" value="4ee6c509-9d30-4487-bac8-99cf94c2ea94" />
-        <input type="hidden" name="subject" value="4ee6c509-9d30-4487-bac8-99cf94c2ea94" />
-        <input type="hidden" name="from_name" value="Communication Ladder Website" />
-        <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" />
+      <form id="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" onsubmit="handleSubmit(event)" class="relative z-10">
+        <!-- Netlify Forms: submissions appear in the Netlify dashboard → Forms → "contact" -->
+        <input type="hidden" name="form-name" value="contact" />
+        <p class="hidden" aria-hidden="true">
+          <label>Leave this field empty if you're human: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+        </p>
 
         <div class="grid md:grid-cols-2 gap-5 mb-5">
           <div>
@@ -1881,7 +1881,7 @@
     }, 2800);
   })();
 
-  // Form submission via Web3Forms
+  // Form submission via Netlify Forms (AJAX — keeps the inline success state)
   async function handleSubmit(e) {
     e.preventDefault();
     const form = e.target;
@@ -1890,6 +1890,13 @@
     const successMsg = document.getElementById('success-msg');
     const errorMsg = document.getElementById('error-msg');
 
+    // Honeypot: if the hidden field is filled, silently pretend success
+    if (form.querySelector('[name="bot-field"]') && form.querySelector('[name="bot-field"]').value) {
+      successMsg.classList.remove('hidden');
+      form.reset();
+      return;
+    }
+
     btn.disabled = true;
     btn.style.opacity = '0.7';
     label.textContent = 'Sending…';
@@ -1897,17 +1904,16 @@
     errorMsg.classList.add('hidden');
 
     try {
-      const res = await fetch('https://api.web3forms.com/submit', {
+      const res = await fetch('/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(Object.fromEntries(new FormData(form)))
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
       });
-      const data = await res.json();
-      if (data.success) {
+      if (res.ok) {
         successMsg.classList.remove('hidden');
         form.reset();
       } else {
-        throw new Error(data.message || 'Submission failed');
+        throw new Error('Submission failed: ' + res.status);
       }
     } catch {
       errorMsg.classList.remove('hidden');
