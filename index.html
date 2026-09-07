@@ -2008,10 +2008,14 @@
 
     const startedAt = Date.now();
     try {
-      const res = await fetch('/', {
+      // Build the payload — force form-name so Netlify always routes it to the "contact" form
+      const fd = new FormData(form);
+      fd.set('form-name', form.getAttribute('name') || 'contact');
+      const endpoint = form.getAttribute('action') || location.pathname || '/';
+      const res = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(new FormData(form)).toString()
+        body: new URLSearchParams(fd).toString()
       });
       if (!res.ok) throw new Error('Submission failed: ' + res.status);
 
